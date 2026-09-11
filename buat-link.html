@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Generator Link Undangan</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #1e2e52;
+        color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .panel {
+        background-color: #ffffff10;
+        padding: 25px 20px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 350px;
+        text-align: center;
+    }
+    input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        background-color: aliceblue;
+        color: #1e2e52;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    button:hover { opacity: 0.85; }
+    #pesanError { color: #ff6b6b; font-size: 0.85rem; }
+    #hasilLink { display: none; margin-top: 15px; }
+</style>
+</head>
+<body>
+
+    <div class="panel" id="gerbangKode">
+        <h2>Masukkan Kode Akses</h2>
+        <input type="password" id="inputKode" placeholder="Kode rahasia">
+        <button id="btnMasuk">Masuk</button>
+        <p id="pesanError"></p>
+    </div>
+
+    <div class="panel" id="panelGenerator" style="display:none;">
+        <h2>Generator Link Tamu</h2>
+        <input type="text" id="inputNamaTamu" placeholder="Nama tamu, misal: Bapak Andi">
+        <button id="btnGenerate">Generate Link</button>
+        <div id="hasilLink">
+            <input type="text" id="outputLink" readonly>
+            <button id="btnCopy">Copy Link</button>
+        </div>
+    </div>
+
+<script>
+    const KODE_RAHASIA = "ulfahjalal2026"; // GANTI dengan kode kamu sendiri
+
+    document.getElementById("btnMasuk").addEventListener("click", () => {
+        const kode = document.getElementById("inputKode").value;
+        if (kode === KODE_RAHASIA) {
+            document.getElementById("gerbangKode").style.display = "none";
+            document.getElementById("panelGenerator").style.display = "block";
+        } else {
+            document.getElementById("pesanError").textContent = "Kode salah, coba lagi.";
+        }
+    });
+
+    document.getElementById("btnGenerate").addEventListener("click", () => {
+        const nama = document.getElementById("inputNamaTamu").value.trim();
+        if (!nama) { alert("Isi nama tamu dulu ya."); return; }
+
+        const baseUrl = location.origin + location.pathname.replace("buat-link.html", "web undangan.html");
+        const link = `${baseUrl}?to=${encodeURIComponent(nama)}`;
+
+        document.getElementById("outputLink").value = link;
+        document.getElementById("hasilLink").style.display = "block";
+    });
+
+    document.getElementById("btnCopy").addEventListener("click", () => {
+        const output = document.getElementById("outputLink");
+        output.select();
+        navigator.clipboard.writeText(output.value);
+        alert("Link berhasil disalin!");
+    });
+</script>
+</body>
+</html>
