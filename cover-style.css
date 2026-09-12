@@ -1,0 +1,153 @@
+* {
+        box-sizing: border-box;
+    }
+    body {
+        background-image: url(assets/background.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: aliceblue;
+        align-items: center;
+    }
+    .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        height: 100vh;
+        padding: 10px 10px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px#0f2045;
+        background-color: #1e2e52;
+        color: #e6eeff;
+    }
+    .jarak-kecil p,
+    .jarak-kecil h1,
+    .jarak-kecil h2,
+    .jarak-kecil h3 {
+        margin-top: 3px;
+        margin-bottom: 7px;
+    }
+    .jarak-kecil p {
+        font-family: 'gonsterat-medium', sans-serif;
+        font-size: clamp(0.4rem, 2.7vw, 0.9rem);
+        font-weight: 500;
+    }
+    .jarak-kecil h3 {
+        font-size: clamp(1.3rem, 4vw, 2rem);
+        margin-top: 3px;
+        margin-bottom: 7px;
+        border-radius: 5px;
+        border: none;
+        padding: 3px 8px;
+        text-shadow: #203156 0 0 10px;
+    }
+    .jarak-kecil h4 {
+        font-size: clamp(0.7rem, 3vw, 1.1rem);
+        margin-top: 3px;
+        margin-bottom: 7px;
+        border-radius: 5px;
+        border: none;
+        padding: 3px 8px;
+    }
+    .tombol-klik button {
+        font-size: clamp(0.4rem, 2.5vw, 0.75rem);
+        font-weight: bold;
+        background-color: #e6eeff !important;
+        color: #203156;
+        box-shadow: 0 3px 5px #203156;
+        padding: clamp(0.2rem, 1.5vw, 0.4rem) clamp(0.37rem, 2.5vw, 0.75rem);
+        margin-top: clamp(0.37rem, 2.5vw, 0.75rem);
+        border-radius: clamp(0.37rem, 2.5vw, 0.75rem);
+        border: none;
+        outline: none;
+        display: inline-block;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+    }
+    .tombol-klik button:hover {
+        color: #203156;
+        background-color: #ffffff;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #ffffff;
+    }
+    .kepingan-hiasan {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .bingkai-crop-kia {
+        width: clamp(2rem,20vw,10rem);
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    .isi-gambar-kia {
+        width: 410%;
+        height: auto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    .bingkai-crop-kib {
+        width: clamp(2rem,20vw,10rem);
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+    .isi-gambar-kib {
+        width: 410%;
+        height: auto;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        transform: scaleX(-1);
+        transform: scaleY(-1);
+    }
+    .bingkai-crop-kaa {
+        width: clamp(2rem,20vw,10rem);
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+    }
+    .isi-gambar-kaa {
+        width: 410%;
+        height: auto;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        transform: scaleX(-1);
+    }
+    .bingkai-crop-kab {
+        width: clamp(2rem,20vw,10rem);
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+    }
+    .isi-gambar-kab {
+        width: 410%;
+        height: auto;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        transform: scale(-1);
+    }
